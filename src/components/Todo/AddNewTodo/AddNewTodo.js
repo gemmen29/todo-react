@@ -7,6 +7,11 @@ import TextInput from '../../UI/TextInput/TextInput';
 const AddNewTodo = ({ onSubmit }) => {
   const todoRef = useRef();
   const AddNewItemHandler = () => {
+    if (!todoRef.current.getInputValue()) {
+      return;
+    }
+    console.log(todoRef.current.getInputValue(), '');
+
     const todo = {
       id: uuidv4(),
       title: todoRef.current.getInputValue(),

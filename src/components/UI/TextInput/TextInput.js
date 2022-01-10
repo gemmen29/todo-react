@@ -16,7 +16,7 @@ const TextInput = forwardRef(
 
     useImperativeHandle(ref, () => ({
       getInputValue() {
-        return inputValue.current.value;
+        return inputValue.current.value.trim();
       },
       setInputValue(value) {
         inputValue.current.value = value;

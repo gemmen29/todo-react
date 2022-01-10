@@ -1,3 +1,4 @@
-.TextInput {
-  font-size: 20px;
+.disabled {
+  background-color: #e9ecef;
+  color: gray;
 }

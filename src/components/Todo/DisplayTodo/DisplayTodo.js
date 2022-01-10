@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,12 +7,15 @@ import styles from './DisplayTodo.module.css';
 import TextInput from '../../UI/TextInput/TextInput';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 
-const DisplayTodo = ({ todo, onChange, onDelete }) => {
+const DisplayTodo = ({ todo, onChangeCheck, onDelete, onEdit }) => {
   const ChangeCheckHandler = () => {
-    onChange(todo.id);
+    onChangeCheck(todo.id);
   };
   const deleteHandler = () => {
     onDelete(todo.id);
+  };
+  const editHandler = (newText) => {
+    onEdit(todo.id, newText);
   };
   return (
     <div className="input-group">
@@ -28,6 +32,7 @@ const DisplayTodo = ({ todo, onChange, onDelete }) => {
         classes="form-control fs-5"
         value={todo.title}
         disabled={false}
+        onEdit={editHandler}
       />
       <button
         type="button"
@@ -46,8 +51,9 @@ DisplayTodo.propTypes = {
     title: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
   }),
-  onChange: PropTypes.func,
+  onChangeCheck: PropTypes.func,
   onDelete: PropTypes.func,
+  onEdit: PropTypes.func,
 };
 
 DisplayTodo.defaultProps = {
@@ -56,8 +62,9 @@ DisplayTodo.defaultProps = {
     title: 'Task Title',
     completed: false,
   }),
-  onChange: () => {},
+  onChangeCheck: () => {},
   onDelete: () => {},
+  onEdit: () => {},
 };
 
 export default DisplayTodo;

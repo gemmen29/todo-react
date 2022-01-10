@@ -41,6 +41,12 @@ function App() {
     setTodos((preTodos) => preTodos.filter((todo) => todo.id !== todoId));
   };
 
+  const editHandler = (todoId, newTitle) => {
+    const todo = todos.find((todo) => todo.id === todoId);
+    todo.title = newTitle;
+    setTodos((preTodos) => [...preTodos]);
+  };
+
   return (
     <>
       <Header />
@@ -51,7 +57,8 @@ function App() {
             <DisplayTodo
               key={todo.id}
               todo={todo}
-              onChange={ChangeCheckHandler}
+              onChangeCheck={ChangeCheckHandler}
+              onEdit={editHandler}
               onDelete={deleteHandler}
             />
           ))}

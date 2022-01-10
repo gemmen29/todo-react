@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddNewTodo from './components/Todo/AddNewTodo/AddNewTodo';
@@ -11,8 +11,20 @@ const dummyData = [
   { id: 4, title: 'Task 4', completed: false },
 ];
 
+const todoKey = 'todos';
+
 function App() {
   const [todos, setTodos] = useState(dummyData);
+
+  useEffect(() => {
+    if (localStorage.getItem(todoKey)) {
+      setTodos(JSON.parse(localStorage.getItem(todoKey)));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(todoKey, JSON.stringify(todos));
+  }, [todos]);
 
   const AddNewTodoHandler = (todo) => {
     setTodos((preTodos) => [...preTodos, todo]);
@@ -22,7 +34,15 @@ function App() {
     const todo = todos.find((todo) => todo.id === todoId);
     todo.completed = !todo.completed;
     setTodos((preTodos) => [...preTodos]);
-    console.log(todos);
+  };
+
+  const deleteHandler = (todoId) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === todoId);
+    setTodos((preTodos) => {
+      const list = preTodos;
+      list.splice(todoIndex, 1);
+      return [...list];
+    });
   };
 
   return (
@@ -34,6 +54,7 @@ function App() {
             key={todo.id}
             todo={todo}
             onChange={ChangeCheckHandler}
+            onDelete={deleteHandler}
           />
         ))}
       </div>

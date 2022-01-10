@@ -6,9 +6,12 @@ import styles from './DisplayTodo.module.css';
 import TextInput from '../../UI/TextInput/TextInput';
 import Checkbox from '../../UI/Checkbox/Checkbox';
 
-const DisplayTodo = ({ todo, onChange }) => {
+const DisplayTodo = ({ todo, onChange, onDelete }) => {
   const ChangeCheckHandler = () => {
     onChange(todo.id);
+  };
+  const deleteHandler = () => {
+    onDelete(todo.id);
   };
   return (
     <div className="input-group">
@@ -26,11 +29,13 @@ const DisplayTodo = ({ todo, onChange }) => {
         value={todo.title}
         disabled={false}
       />
-      <span
+      <button
+        type="button"
         className={`input-group-text ${styles['pointer-button']} btn btn-danger fw-bold fs-4`}
+        onClick={deleteHandler}
       >
         <FontAwesomeIcon icon={faTrash} />
-      </span>
+      </button>
     </div>
   );
 };
@@ -42,6 +47,7 @@ DisplayTodo.propTypes = {
     completed: PropTypes.bool.isRequired,
   }),
   onChange: PropTypes.func,
+  onDelete: PropTypes.func,
 };
 
 DisplayTodo.defaultProps = {
@@ -51,6 +57,7 @@ DisplayTodo.defaultProps = {
     completed: false,
   }),
   onChange: () => {},
+  onDelete: () => {},
 };
 
 export default DisplayTodo;

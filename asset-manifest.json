@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/gemmen29/todo-react/static/css/main.f087c437.css",
-    "main.js": "/gemmen29/todo-react/static/js/main.c5faa57c.js",
+    "main.css": "/gemmen29/todo-react/static/css/main.a6ed8cbc.css",
+    "main.js": "/gemmen29/todo-react/static/js/main.f3185d46.js",
     "static/js/787.31a5ad68.chunk.js": "/gemmen29/todo-react/static/js/787.31a5ad68.chunk.js",
     "index.html": "/gemmen29/todo-react/index.html",
-    "main.f087c437.css.map": "/gemmen29/todo-react/static/css/main.f087c437.css.map",
-    "main.c5faa57c.js.map": "/gemmen29/todo-react/static/js/main.c5faa57c.js.map",
+    "main.a6ed8cbc.css.map": "/gemmen29/todo-react/static/css/main.a6ed8cbc.css.map",
+    "main.f3185d46.js.map": "/gemmen29/todo-react/static/js/main.f3185d46.js.map",
     "787.31a5ad68.chunk.js.map": "/gemmen29/todo-react/static/js/787.31a5ad68.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f087c437.css",
-    "static/js/main.c5faa57c.js"
+    "static/css/main.a6ed8cbc.css",
+    "static/js/main.f3185d46.js"
   ]
 }

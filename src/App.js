@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import AddNewTodo from './components/Todo/AddNewTodo/AddNewTodo';
@@ -43,7 +42,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="d-flex flex-column container justify-content-center align-items-center min-vh-100">
+      <div className="d-flex flex-column container justify-content-center align-items-center flex-fill">
         <AddNewTodo onSubmit={AddNewTodoHandler} />
         <div className="p-2 w-100 d-flex flex-column gap-2 pt-5">
           {todos.map((todo) => (

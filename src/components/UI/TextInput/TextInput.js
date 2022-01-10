@@ -1,11 +1,18 @@
 /* eslint-disable object-curly-newline */
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
-// import styles from './TextInput.module.css';
+import styles from './TextInput.module.css';
 
 const TextInput = forwardRef(
-  ({ type, classes, value, disabled, placeholder }, ref) => {
+  ({ type, classes, value, disabled, placeholder, onEdit }, ref) => {
     const inputValue = useRef();
+
+    const [isDisabled, setIsDisabled] = useState(disabled);
 
     useImperativeHandle(ref, () => ({
       getInputValue() {
@@ -16,15 +23,44 @@ const TextInput = forwardRef(
       },
     }));
 
+    const clickHandler = () => {
+      setIsDisabled((pre) => !pre);
+    };
+
+    const keyDownHandler = (e) => {
+      if (e.key === 'Enter') {
+        e.target.blur();
+      }
+    };
+
+    const blurHandler = (e) => {
+      setIsDisabled((pre) => !pre);
+      onEdit(e.target.value);
+    };
+
     return (
-      <input
-        type={type}
-        placeholder={placeholder}
-        className={classes}
-        defaultValue={value}
-        disabled={!disabled}
-        ref={inputValue}
-      />
+      <>
+        {placeholder === '' && (
+          <input
+            type={type}
+            placeholder={placeholder}
+            className={`${classes} ${!isDisabled && styles.disabled}`}
+            defaultValue={value}
+            ref={inputValue}
+            onClick={clickHandler}
+            onKeyDown={keyDownHandler}
+            onBlur={blurHandler}
+          />
+        )}
+        {placeholder === 'Add todo...' && (
+          <input
+            type={type}
+            placeholder={placeholder}
+            className={`${classes}`}
+            ref={inputValue}
+          />
+        )}
+      </>
     );
   },
 );
@@ -35,6 +71,7 @@ TextInput.propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
+  onEdit: PropTypes.func,
 };
 
 TextInput.defaultProps = {
@@ -43,6 +80,7 @@ TextInput.defaultProps = {
   value: '',
   disabled: true,
   placeholder: '',
+  onEdit: () => {},
 };
 
 TextInput.displayName = 'Search';

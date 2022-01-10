@@ -8,7 +8,7 @@ const Checkbox = ({ type, classes, checked, onChange }) => (
     type={type}
     onChange={onChange}
     className={classes}
-    defaultChecked={checked}
+    checked={checked}
   />
 );
 

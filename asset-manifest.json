@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/gemmen29/todo-react/static/css/main.a6ed8cbc.css",
-    "main.js": "/gemmen29/todo-react/static/js/main.f3185d46.js",
-    "static/js/787.31a5ad68.chunk.js": "/gemmen29/todo-react/static/js/787.31a5ad68.chunk.js",
-    "index.html": "/gemmen29/todo-react/index.html",
-    "main.a6ed8cbc.css.map": "/gemmen29/todo-react/static/css/main.a6ed8cbc.css.map",
-    "main.f3185d46.js.map": "/gemmen29/todo-react/static/js/main.f3185d46.js.map",
-    "787.31a5ad68.chunk.js.map": "/gemmen29/todo-react/static/js/787.31a5ad68.chunk.js.map"
+    "main.css": "/todo-react/static/css/main.a6ed8cbc.css",
+    "main.js": "/todo-react/static/js/main.3f9576f3.js",
+    "static/js/787.31a5ad68.chunk.js": "/todo-react/static/js/787.31a5ad68.chunk.js",
+    "index.html": "/todo-react/index.html",
+    "main.a6ed8cbc.css.map": "/todo-react/static/css/main.a6ed8cbc.css.map",
+    "main.3f9576f3.js.map": "/todo-react/static/js/main.3f9576f3.js.map",
+    "787.31a5ad68.chunk.js.map": "/todo-react/static/js/787.31a5ad68.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a6ed8cbc.css",
-    "static/js/main.f3185d46.js"
+    "static/js/main.3f9576f3.js"
   ]
 }

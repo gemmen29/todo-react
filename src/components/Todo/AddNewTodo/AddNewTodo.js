@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './AddNewTodo.module.css';
 import TextInput from '../../UI/TextInput/TextInput';
 
@@ -7,7 +8,7 @@ const AddNewTodo = ({ onSubmit }) => {
   const todoRef = useRef();
   const AddNewItemHandler = () => {
     const todo = {
-      id: Math.random(),
+      id: uuidv4(),
       title: todoRef.current.getInputValue(),
       completed: false,
     };

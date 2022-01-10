@@ -29,7 +29,9 @@ const DisplayTodo = ({ todo, onChangeCheck, onDelete, onEdit }) => {
       </span>
       <TextInput
         type="text"
-        classes="form-control fs-5"
+        classes={`form-control fs-5" ${
+          todo.completed && styles['line-through']
+        }`}
         value={todo.title}
         disabled={false}
         onEdit={editHandler}

@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# TODO list
 
-> One paragraph statement about the project.
+> This is a project for managing daily using React framework.
 
 ![screenshot](./app_screenshot.png)
 
@@ -18,7 +18,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://gemmen29.github.io/{Repo-Name}/)
+[Live Demo Link](https://gemmen29.github.io/todo-react/)
 
 ## Getting Started
 

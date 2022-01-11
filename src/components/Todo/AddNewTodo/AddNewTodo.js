@@ -10,7 +10,6 @@ const AddNewTodo = ({ onSubmit }) => {
     if (!todoRef.current.getInputValue()) {
       return;
     }
-    console.log(todoRef.current.getInputValue(), '');
 
     const todo = {
       id: uuidv4(),

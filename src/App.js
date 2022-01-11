@@ -24,9 +24,12 @@ function App() {
   };
 
   const ChangeCheckHandler = (todoId) => {
-    const todo = todos.find((todo) => todo.id === todoId);
-    todo.completed = !todo.completed;
-    setTodos((preTodos) => [...preTodos]);
+    setTodos((preTodos) => {
+      const allTodos = [...preTodos];
+      const todo = allTodos.find((todo) => todo.id === todoId);
+      todo.completed = !todo.completed;
+      return [...allTodos];
+    });
   };
 
   const deleteHandler = (todoId) => {
@@ -34,9 +37,12 @@ function App() {
   };
 
   const editHandler = (todoId, newTitle) => {
-    const todo = todos.find((todo) => todo.id === todoId);
-    todo.title = newTitle;
-    setTodos((preTodos) => [...preTodos]);
+    setTodos((preTodos) => {
+      const allTodos = [...preTodos];
+      const todo = allTodos.find((todo) => todo.id === todoId);
+      todo.title = newTitle;
+      return [...allTodos];
+    });
   };
 
   return (
